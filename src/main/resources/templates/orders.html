@@ -2,15 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Orders</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 <h1>Orders</h1>
 <form method="post" th:action="@{/orders/generate}">
-    <select name="productId">
-        <option th:each="product : ${products}" th:value="${product.id}" th:text="${product.name}"></option>
+    <select name="productId" required>
+        <option th:each="product : ${products}"
+                th:value="${product.id}"
+                th:text="${product.name}"></option>
     </select>
     <button type="submit">Generate Order</button>
 </form>
+
 <table>
     <thead>
     <tr>
@@ -27,5 +31,7 @@
     </tr>
     </tbody>
 </table>
+
+<p th:if="${errorMessage}" th:text="${errorMessage}" style="color: red;"></p>
 </body>
 </html>

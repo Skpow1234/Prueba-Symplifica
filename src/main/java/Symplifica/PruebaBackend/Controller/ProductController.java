@@ -2,8 +2,8 @@ package Symplifica.PruebaBackend.Controller;
 
 import Symplifica.PruebaBackend.Entity.DTO.ProductDto;
 import Symplifica.PruebaBackend.Services.ProductService;
-import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -22,6 +22,11 @@ public class ProductController {
         return "products";
     }
 
+    @GetMapping("/add")
+    public String addProductPage() {
+        return "products";
+    }
+
     @PostMapping("/add")
     public String addProduct(@ModelAttribute ProductDto productDto) {
         productService.addProduct(productDto);
@@ -34,4 +39,3 @@ public class ProductController {
         return "redirect:/products";
     }
 }
-

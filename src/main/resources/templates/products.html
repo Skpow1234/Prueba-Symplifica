@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Products</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 <h1>Products</h1>
@@ -12,6 +13,7 @@
     <input type="number" name="currentStock" placeholder="Stock" required>
     <button type="submit">Add Product</button>
 </form>
+
 <ul>
     <li th:each="product : ${products}">
         <span th:text="${product.name}"></span>

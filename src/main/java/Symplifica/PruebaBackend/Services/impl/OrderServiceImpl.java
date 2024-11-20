@@ -28,7 +28,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void generateOrder(Integer productId) {
         Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new RuntimeException("Product not found"));
+                .orElseThrow(() -> new RuntimeException("Product not found with ID: " + productId));
         Order order = new Order();
         order.setProduct(product);
         orderRepository.save(order);
